@@ -1,0 +1,188 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2017-11-03T17:09:03Z",
+    "title" : "production-lychee-api-v1"
+  },
+  "host" : "lychee-api.revenuewire.io",
+  "basePath" : "/v1",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/sessions/ip/{ip}" : {
+      "get" : {
+        "operationId" : "getSessionsByIp",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "affiliateInfoId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "ip",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "destinationId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "partnerId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "merchantId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/customerSessions"
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ]
+      }
+    },
+    "/sessions/session/{sessionId}" : {
+      "get" : {
+        "operationId" : "getSessionsBySessionId",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "affiliateInfoId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "destinationId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sessionId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "partnerId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "merchantId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/customerSessions"
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ]
+      }
+    },
+    "/sessions/{id}" : {
+      "get" : {
+        "operationId" : "getSession",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/customerSession"
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ]
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "api_key" : {
+      "type" : "apiKey",
+      "name" : "x-api-key",
+      "in" : "header"
+    }
+  },
+  "definitions" : {
+    "customerSession" : {
+      "type" : "object",
+      "required" : [ "id", "ip", "sessionId" ],
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "sessionId" : {
+          "type" : "string"
+        },
+        "ip" : {
+          "type" : "string"
+        },
+        "created" : {
+          "type" : "number"
+        },
+        "modified" : {
+          "type" : "number"
+        },
+        "expiredAt" : {
+          "type" : "number"
+        },
+        "merchantId" : {
+          "type" : "number"
+        },
+        "partnerId" : {
+          "type" : "number"
+        },
+        "affiliateInfoId" : {
+          "type" : "number"
+        },
+        "productId" : {
+          "type" : "number"
+        },
+        "destinationId" : {
+          "type" : "number"
+        },
+        "data" : {
+          "type" : "string"
+        }
+      }
+    },
+    "customerSessions" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/customerSession"
+      }
+    }
+  }
+}
