@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "version" : "2017-11-03T17:09:03Z",
+    "version" : "2017-11-07T03:14:22Z",
     "title" : "production-lychee-api-v1"
   },
   "host" : "lychee-api.revenuewire.io",
@@ -173,8 +173,28 @@
         "destinationId" : {
           "type" : "number"
         },
-        "data" : {
-          "type" : "string"
+        "networkId" : {
+          "type" : "number"
+        },
+        "server" : {
+          "type" : "object",
+          "properties" : {
+            "HTTP_USER_AGENT" : {
+              "type" : "string"
+            },
+            "HTTP_REFERER" : {
+              "type" : "string"
+            },
+            "HTTP_ACCEPT_LANGUAGE" : {
+              "type" : "string"
+            },
+            "QUERY_STRING" : {
+              "type" : "object",
+              "additionalProperties" : {
+                "type" : "string"
+              }
+            }
+          }
         }
       }
     },
