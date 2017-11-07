@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "version" : "2017-11-07T03:14:22Z",
+    "version" : "2017-11-07T20:47:19Z",
     "title" : "production-lychee-api-v1"
   },
   "host" : "lychee-api.revenuewire.io",
@@ -47,7 +47,7 @@
           "200" : {
             "description" : "200 response",
             "schema" : {
-              "$ref" : "#/definitions/customerSessions"
+              "$ref" : "#/definitions/ArrayOfcustomerSession"
             }
           }
         },
@@ -95,7 +95,7 @@
           "200" : {
             "description" : "200 response",
             "schema" : {
-              "$ref" : "#/definitions/customerSessions"
+              "$ref" : "#/definitions/ArrayOfcustomerSession"
             }
           }
         },
@@ -136,6 +136,12 @@
     }
   },
   "definitions" : {
+    "ArrayOfcustomerSession" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/customerSession"
+      }
+    },
     "customerSession" : {
       "type" : "object",
       "required" : [ "id", "ip", "sessionId" ],
@@ -176,32 +182,29 @@
         "networkId" : {
           "type" : "number"
         },
-        "server" : {
+        "tid" : {
+          "type" : "string"
+        },
+        "httpReferer" : {
+          "type" : "string"
+        },
+        "subIds" : {
           "type" : "object",
           "properties" : {
-            "HTTP_USER_AGENT" : {
+            "subId" : {
               "type" : "string"
             },
-            "HTTP_REFERER" : {
+            "subId2" : {
               "type" : "string"
             },
-            "HTTP_ACCEPT_LANGUAGE" : {
+            "subId3" : {
               "type" : "string"
             },
-            "QUERY_STRING" : {
-              "type" : "object",
-              "additionalProperties" : {
-                "type" : "string"
-              }
+            "clickId" : {
+              "type" : "string"
             }
           }
         }
-      }
-    },
-    "customerSessions" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/customerSession"
       }
     }
   }
