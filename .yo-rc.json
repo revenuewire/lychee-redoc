@@ -1,0 +1,11 @@
+{
+  "generator-openapi-repo": {
+    "importExistingSpec": true,
+    "importedSpec": "spec/swagger.json",
+    "name": "Lychee API",
+    "repo": "revenuewire/lychee-redoc",
+    "splitSpec": false,
+    "samples": false,
+    "installSwaggerUI": true
+  }
+}
