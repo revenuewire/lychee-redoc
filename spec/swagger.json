@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "version" : "2017-11-08T22:57:48Z",
+    "version" : "2017-11-10T21:08:00Z",
     "title" : "production-lychee-api-v1"
   },
   "host" : "lychee-api.revenuewire.io",
@@ -182,9 +182,6 @@
         "networkId" : {
           "type" : "number"
         },
-        "tid" : {
-          "type" : "string"
-        },
         "httpReferer" : {
           "type" : "string"
         },
@@ -197,19 +194,16 @@
         "queryString" : {
           "type" : "string"
         },
-        "campaign" : {
-          "type" : "object",
-          "properties" : {
-            "agentUserId" : {
-              "type" : "string"
-            },
-            "campaignId" : {
-              "type" : "string"
-            },
-            "agentId" : {
-              "type" : "string"
-            }
-          }
+        "void" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "tid" : {
+          "type" : "string"
+        },
+        "isCPA" : {
+          "type" : "boolean",
+          "default" : false
         },
         "subIds" : {
           "type" : "object",
@@ -228,9 +222,8 @@
             }
           }
         },
-        "void" : {
-          "type" : "boolean",
-          "default" : false
+        "clickId" : {
+          "type" : "string"
         }
       }
     }
